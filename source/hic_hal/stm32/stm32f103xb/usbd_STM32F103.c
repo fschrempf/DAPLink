@@ -180,10 +180,10 @@ void USBD_Connect(BOOL con)
         CNTR = 0;
         ISTR = 0;                           /* Clear Interrupt Status             */
         CNTR = CNTR_RESETM | CNTR_SUSPM | CNTR_WKUPM; /* USB Interrupt Mask       */
-        USB_CONNECT_ON();
+        //USB_CONNECT_ON();
     } else {
         CNTR = CNTR_FRES | CNTR_PDWN;       /* Switch Off USB Device              */
-        USB_CONNECT_OFF();
+        //USB_CONNECT_OFF();
     }
 }
 
