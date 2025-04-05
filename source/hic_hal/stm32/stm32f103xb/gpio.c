@@ -126,12 +126,12 @@ void gpio_init(void)
     // Note - SWD is still enabled
     __HAL_AFIO_REMAP_SWJ_NOJTAG();
 
-    USB_CONNECT_PORT_ENABLE();
-    USB_CONNECT_OFF();
-    GPIO_InitStructure.Pin = USB_CONNECT_PIN;
-    GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_HIGH;
-    GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
-    HAL_GPIO_Init(USB_CONNECT_PORT, &GPIO_InitStructure);
+    // USB_CONNECT_PORT_ENABLE();
+    // USB_CONNECT_OFF();
+    // GPIO_InitStructure.Pin = USB_CONNECT_PIN;
+    // GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_HIGH;
+    // GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
+    // HAL_GPIO_Init(USB_CONNECT_PORT, &GPIO_InitStructure);
     // configure LEDs
     HAL_GPIO_WritePin(RUNNING_LED_PORT, RUNNING_LED_PIN, GPIO_PIN_SET);
     GPIO_InitStructure.Pin = RUNNING_LED_PIN;
@@ -164,13 +164,13 @@ void gpio_init(void)
     GPIO_InitStructure.Pull = GPIO_PULLUP;
     HAL_GPIO_Init(nRESET_PIN_PORT, &GPIO_InitStructure);
 
-    // Turn on power to the board. When the target is unpowered
-    // it holds the reset line low.
-    HAL_GPIO_WritePin(POWER_EN_PIN_PORT, POWER_EN_PIN, GPIO_PIN_RESET);
-    GPIO_InitStructure.Pin = POWER_EN_PIN;
-    GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_HIGH;
-    GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
-    HAL_GPIO_Init(POWER_EN_PIN_PORT, &GPIO_InitStructure);
+    // // Turn on power to the board. When the target is unpowered
+    // // it holds the reset line low.
+    // HAL_GPIO_WritePin(POWER_EN_PIN_PORT, POWER_EN_PIN, GPIO_PIN_RESET);
+    // GPIO_InitStructure.Pin = POWER_EN_PIN;
+    // GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_HIGH;
+    // GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
+    // HAL_GPIO_Init(POWER_EN_PIN_PORT, &GPIO_InitStructure);
 
     // Setup the 8MHz MCO
     GPIO_InitStructure.Pin = GPIO_PIN_8;
