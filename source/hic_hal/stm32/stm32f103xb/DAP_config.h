@@ -90,7 +90,7 @@ This information includes:
 
 /// Indicate that UART Serial Wire Output (SWO) trace is available.
 /// This information is returned by the command \ref DAP_Info as part of <b>Capabilities</b>.
-#define SWO_UART                1               ///< SWO UART:  1 = available, 0 = not available
+#define SWO_UART                0               ///< SWO UART:  1 = available, 0 = not available
 
 /// USART Driver instance number for the UART SWO.
 #define SWO_UART_DRIVER         2               ///< USART Driver instance number (Driver_USART#).
@@ -113,7 +113,7 @@ This information includes:
 
 /// Indicate that UART Communication Port is available.
 /// This information is returned by the command \ref DAP_Info as part of <b>Capabilities</b>.
-#define DAP_UART                1               ///< DAP UART:  1 = available, 0 = not available.
+#define DAP_UART                0               ///< DAP UART:  1 = available, 0 = not available.
 
 /// USART Driver instance number for the UART Communication Port.
 #define DAP_UART_DRIVER         1               ///< USART Driver instance number (Driver_USART#).
