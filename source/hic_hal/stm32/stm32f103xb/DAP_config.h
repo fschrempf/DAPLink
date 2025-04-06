@@ -258,7 +258,7 @@ __STATIC_INLINE void PORT_SWD_SETUP(void)
     pin_out_init(SWDIO_OUT_PIN_PORT, SWDIO_OUT_PIN_Bit);
     SWDIO_OUT_PIN_PORT->BSRR = SWDIO_OUT_PIN;
 
-    //pin_in_init(SWDIO_IN_PIN_PORT, SWDIO_IN_PIN_Bit, 1);
+    pin_in_init(SWDIO_IN_PIN_PORT, SWDIO_IN_PIN_Bit, 1);
     // Set RESET HIGH
     pin_out_od_init(nRESET_PIN_PORT, nRESET_PIN_Bit);//TODO - fix reset logic
     nRESET_PIN_PORT->BSRR = nRESET_PIN;
@@ -272,7 +272,7 @@ __STATIC_INLINE void PORT_OFF(void)
 {
     pin_in_init(SWCLK_TCK_PIN_PORT, SWCLK_TCK_PIN_Bit, 0);
     pin_in_init(SWDIO_OUT_PIN_PORT, SWDIO_OUT_PIN_Bit, 0);
-    //pin_in_init(SWDIO_IN_PIN_PORT, SWDIO_IN_PIN_Bit, 0);
+    pin_in_init(SWDIO_IN_PIN_PORT, SWDIO_IN_PIN_Bit, 0);
 }
 
 // SWCLK/TCK I/O pin -------------------------------------
@@ -308,7 +308,7 @@ __STATIC_FORCEINLINE void PIN_SWCLK_TCK_CLR(void)
 */
 __STATIC_FORCEINLINE uint32_t PIN_SWDIO_TMS_IN(void)
 {
-    return ((SWDIO_OUT_PIN_PORT->IDR & SWDIO_OUT_PIN) ? 1 : 0);
+    return ((SWDIO_IN_PIN_PORT->IDR & SWDIO_IN_PIN) ? 1 : 0);
 }
 
 /** SWDIO/TMS I/O pin: Set Output to High.
@@ -332,7 +332,7 @@ __STATIC_FORCEINLINE void PIN_SWDIO_TMS_CLR(void)
 */
 __STATIC_FORCEINLINE uint32_t PIN_SWDIO_IN(void)
 {
-    return ((SWDIO_OUT_PIN_PORT->IDR & SWDIO_OUT_PIN) ? 1 : 0);
+    return ((SWDIO_IN_PIN_PORT->IDR & SWDIO_IN_PIN) ? 1 : 0);
 }
 
 /** SWDIO I/O pin: Set Output (used in SWD mode only).
@@ -534,7 +534,7 @@ __STATIC_INLINE void DAP_SETUP(void)
     pin_out_init(SWDIO_OUT_PIN_PORT, SWDIO_OUT_PIN_Bit);
     SWDIO_OUT_PIN_PORT->BSRR = SWDIO_OUT_PIN;
 
-    //pin_in_init(SWDIO_IN_PIN_PORT, SWDIO_IN_PIN_Bit, 1);
+    pin_in_init(SWDIO_IN_PIN_PORT, SWDIO_IN_PIN_Bit, 1);
 
     pin_out_od_init(nRESET_PIN_PORT, nRESET_PIN_Bit);
     nRESET_PIN_PORT->BSRR = nRESET_PIN;
